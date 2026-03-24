@@ -12,6 +12,21 @@ const router = createRouter({
           name: 'home',
           component: () => import('@/pages/HomePage.vue'),
         },
+        {
+          path: 'search',
+          name: 'search',
+          component: () => import('@/pages/SearchPage.vue'),
+        },
+        {
+          path: 'drama/:bookId',
+          name: 'detail',
+          component: () => import('@/pages/DetailPage.vue'),
+        },
+        {
+          path: 'watch/:bookId/:chapterId',
+          name: 'watch',
+          component: () => import('@/pages/WatchPage.vue'),
+        },
       ],
     },
   ],
