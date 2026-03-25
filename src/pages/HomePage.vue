@@ -20,7 +20,7 @@
             <div class="relative grid gap-6 p-6 md:p-8 lg:grid-cols-[minmax(0,1.15fr)_380px] xl:p-10">
               <div class="flex min-h-[420px] flex-col justify-end">
                 <div class="flex flex-wrap items-center gap-2">
-                  <span class="rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em] text-orange-200">
+                  <span class="theme-accent-pill rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.22em]">
                     Tonight's Spotlight
                   </span>
                   <span
@@ -65,7 +65,7 @@
                 <div class="mt-8 flex flex-wrap gap-3">
                   <router-link
                     :to="{ name: 'watch', params: { bookId: heroItem.bookId, chapterId: heroItem.chapterId } }"
-                    class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 via-orange-400 to-amber-300 px-6 py-3 text-sm font-bold text-zinc-950 transition hover:brightness-110"
+                    class="theme-gradient-bg inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-bold transition hover:brightness-110"
                   >
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />

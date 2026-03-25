@@ -84,7 +84,7 @@
 
             <div class="rounded-[32px] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8 xl:p-10">
               <div class="flex flex-wrap items-center gap-2">
-                <span class="rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-200">
+                <span class="theme-accent-pill rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em]">
                   Featured Drama
                 </span>
                 <span
@@ -113,7 +113,7 @@
               <button
                 v-if="book.introduction && book.introduction.length > 180"
                 @click="showFull = !showFull"
-                class="mt-3 text-sm font-medium text-orange-200 transition hover:text-white"
+                class="theme-accent-soft-text mt-3 text-sm font-medium transition hover:text-white"
               >
                 {{ showFull ? 'Show less' : 'Read full synopsis' }}
               </button>
@@ -144,7 +144,7 @@
                 <router-link
                   v-if="firstEpisode"
                   :to="{ name: 'watch', params: { bookId: book.bookId, chapterId: firstEpisode.chapterId } }"
-                  class="inline-flex items-center gap-2 rounded-2xl bg-gradient-to-r from-rose-500 via-orange-400 to-amber-300 px-6 py-3 text-sm font-bold text-zinc-950 transition hover:brightness-110"
+                  class="theme-gradient-bg inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-sm font-bold transition hover:brightness-110"
                 >
                   <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
@@ -242,9 +242,9 @@
             </p>
 
             <div class="mt-6 grid gap-3">
-              <div class="rounded-2xl border border-orange-400/20 bg-orange-400/10 p-4">
-                <p class="text-sm font-semibold text-orange-100">Best entry point</p>
-                <p class="mt-1 text-sm text-orange-50/80">
+              <div class="theme-accent-pill rounded-2xl p-4">
+                <p class="text-sm font-semibold text-white">Best entry point</p>
+                <p class="mt-1 text-sm theme-accent-soft-text">
                   {{ firstEpisode ? `${formatEpisodeLabel(firstEpisode.chapterIndex)} is ready to start right away.` : 'Episode list is loading.' }}
                 </p>
               </div>

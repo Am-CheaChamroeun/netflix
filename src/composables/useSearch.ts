@@ -7,13 +7,14 @@ export const useSearch = (query: Ref<string> | string) => {
   return useQuery({
     queryKey: ['search', query],
     queryFn: async () => {
-      const q = typeof query === 'object' ? query.value : query;
+      const q = (typeof query === 'object' ? query.value : query).trim();
       const response = await api.get<SearchResult[]>('/dramabox/search', {
         params: { query: q },
       });
       return response.data;
     },
-    enabled: typeof query === 'object' ? () => !!query.value : !!query,
+    enabled: typeof query === 'object' ? () => !!query.value.trim() : !!query.trim(),
+    placeholderData: (previousData) => previousData,
     staleTime: 5 * 60 * 1000,
   });
 };

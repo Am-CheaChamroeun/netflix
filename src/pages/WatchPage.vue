@@ -74,7 +74,7 @@
               <button
                 v-if="nextEpisode"
                 @click="goEpisode(nextEpisode.chapterId)"
-                class="inline-flex items-center gap-2 rounded-xl bg-purple-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-purple-500"
+                class="theme-gradient-bg inline-flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold transition hover:brightness-110"
               >
                 Next
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
@@ -117,7 +117,7 @@
                 :key="ep.chapterId"
                 @click="goEpisode(ep.chapterId)"
                 class="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left transition hover:bg-zinc-800"
-                :class="ep.chapterId === chapterId ? 'bg-zinc-800 ring-1 ring-purple-500/50' : ''"
+                :class="ep.chapterId === chapterId ? 'bg-zinc-800 theme-accent-ring-soft' : ''"
               >
                 <div class="relative h-12 w-20 shrink-0 overflow-hidden rounded-lg bg-zinc-800">
                   <img
@@ -136,13 +136,13 @@
                 </div>
 
                 <div class="min-w-0 flex-1">
-                  <p class="truncate text-sm font-medium" :class="ep.chapterId === chapterId ? 'text-purple-400' : 'text-white'">
+                  <p class="truncate text-sm font-medium" :class="ep.chapterId === chapterId ? 'theme-accent-text' : 'text-white'">
                     {{ ep.chapterName }}
                   </p>
                   <p v-if="ep.spriteSnapshotUrl" class="mt-0.5 text-xs text-zinc-500">Preview available</p>
                 </div>
 
-                <svg v-if="ep.chapterId === chapterId" class="h-4 w-4 shrink-0 text-purple-400" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                <svg v-if="ep.chapterId === chapterId" class="theme-accent-text h-4 w-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
               </button>
             </div>
           </div>
