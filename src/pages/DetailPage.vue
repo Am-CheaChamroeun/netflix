@@ -1,9 +1,9 @@
 <template>
   <div class="min-h-screen bg-zinc-950 pb-16 text-white">
-    <div v-if="bookLoading" class="mx-auto max-w-6xl px-4 py-6">
+    <div v-if="bookLoading" class="mx-auto max-w-[1440px] px-4 py-6">
       <div class="mb-6 h-10 w-28 animate-pulse rounded-full bg-zinc-900" />
-      <div class="grid gap-6 lg:grid-cols-[280px,1fr]">
-        <div class="aspect-[2/3] animate-pulse rounded-[28px] bg-zinc-900" />
+      <div class="grid gap-6 lg:grid-cols-[minmax(340px,30vw)_minmax(0,1fr)]">
+        <div class="aspect-[4/5] animate-pulse rounded-[32px] bg-zinc-900" />
         <div class="space-y-4 rounded-[32px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl">
           <div class="h-5 w-24 animate-pulse rounded-full bg-zinc-800" />
           <div class="h-10 w-3/4 animate-pulse rounded-2xl bg-zinc-800" />
@@ -37,7 +37,7 @@
           <div class="absolute right-0 top-10 h-72 w-72 rounded-full bg-rose-500/15 blur-3xl" />
         </div>
 
-        <div class="relative mx-auto max-w-6xl px-4 pb-10 pt-5 md:pb-12">
+        <div class="relative mx-auto max-w-[1440px] px-4 pb-10 pt-5 md:pb-12">
           <button
             @click="$router.back()"
             class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-200 transition hover:border-white/20 hover:bg-white/10"
@@ -48,9 +48,9 @@
             Back
           </button>
 
-          <div class="mt-6 grid items-end gap-6 lg:grid-cols-[280px,1fr] xl:grid-cols-[320px,1fr]">
-            <div class="overflow-hidden rounded-[28px] border border-white/10 bg-zinc-900/80 shadow-2xl shadow-black/40">
-              <div class="relative aspect-[2/3] bg-zinc-900">
+          <div class="mt-6 grid items-stretch gap-6 lg:grid-cols-[minmax(360px,34vw)_minmax(0,1fr)] xl:grid-cols-[minmax(420px,36vw)_minmax(0,1fr)]">
+            <div class="overflow-hidden rounded-[32px] border border-white/10 bg-zinc-900/80 shadow-2xl shadow-black/40">
+              <div class="relative aspect-[4/5] min-h-[420px] bg-zinc-900 lg:min-h-[560px]">
                 <img
                   v-if="book.coverWap"
                   :src="book.coverWap"
@@ -64,11 +64,11 @@
                   </svg>
                 </div>
 
-                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent px-5 pb-5 pt-12">
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/25 to-transparent px-6 pb-6 pt-16">
                   <div class="flex items-end justify-between gap-3">
                     <div>
-                      <p class="text-xs uppercase tracking-[0.24em] text-zinc-400">DramaBox</p>
-                      <p class="mt-1 text-sm font-medium text-zinc-100">{{ chapterSummary }}</p>
+                      <p class="text-xs uppercase tracking-[0.24em] text-zinc-400">DramaBox Original</p>
+                      <p class="mt-2 text-lg font-semibold text-zinc-100 md:text-xl">{{ chapterSummary }}</p>
                     </div>
                     <span
                       v-if="book.corner?.name"
@@ -82,7 +82,7 @@
               </div>
             </div>
 
-            <div class="rounded-[32px] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8">
+            <div class="rounded-[32px] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur-xl md:p-8 xl:p-10">
               <div class="flex flex-wrap items-center gap-2">
                 <span class="rounded-full border border-orange-400/30 bg-orange-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-200">
                   Featured Drama
@@ -95,7 +95,7 @@
                 </span>
               </div>
 
-              <h1 class="mt-4 max-w-3xl text-3xl font-black leading-tight text-white md:text-5xl">
+              <h1 class="mt-4 max-w-4xl text-3xl font-black leading-[1.05] text-white md:text-4xl xl:text-5xl 2xl:text-[3.75rem]">
                 {{ book.bookName }}
               </h1>
 
@@ -178,8 +178,8 @@
         </div>
       </section>
 
-      <main class="mx-auto max-w-6xl px-4">
-        <div class="mt-8 grid gap-6 xl:grid-cols-[1.15fr,0.85fr]">
+      <main class="mx-auto max-w-[1440px] px-4">
+        <div class="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
           <section class="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl">
             <div class="flex items-center justify-between gap-4">
               <div>
@@ -300,14 +300,14 @@
             </div>
           </div>
 
-          <div v-if="episodesLoading" class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div v-if="episodesLoading" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             <div
               v-for="i in 6"
               :key="i"
-              class="overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/60"
+              class="overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950/60"
             >
-              <div class="aspect-video animate-pulse bg-zinc-900" />
-              <div class="space-y-3 p-4">
+              <div class="aspect-[16/10] animate-pulse bg-zinc-900" />
+              <div class="space-y-3 p-3.5">
                 <div class="h-4 w-20 animate-pulse rounded-full bg-zinc-900" />
                 <div class="h-5 w-3/4 animate-pulse rounded-full bg-zinc-900" />
                 <div class="h-4 w-1/2 animate-pulse rounded-full bg-zinc-900" />
@@ -315,14 +315,14 @@
             </div>
           </div>
 
-          <div v-else-if="visibleEpisodes.length" class="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <div v-else-if="visibleEpisodes.length" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
             <router-link
               v-for="ep in visibleEpisodes"
               :key="ep.chapterId"
               :to="{ name: 'watch', params: { bookId: book.bookId, chapterId: ep.chapterId } }"
-              class="group overflow-hidden rounded-3xl border border-white/10 bg-zinc-950/70 transition hover:-translate-y-1 hover:border-white/20 hover:bg-zinc-900"
+              class="group overflow-hidden rounded-[28px] border border-white/10 bg-zinc-950/70 transition hover:-translate-y-1 hover:border-white/20 hover:bg-zinc-900"
             >
-              <div class="relative aspect-video overflow-hidden bg-zinc-900">
+              <div class="relative aspect-[16/10] overflow-hidden bg-zinc-900">
                 <img
                   v-if="ep.chapterImg"
                   :src="ep.chapterImg"
@@ -357,11 +357,11 @@
                 </span>
               </div>
 
-              <div class="p-4">
+              <div class="p-3.5">
                 <div class="flex items-start justify-between gap-3">
                   <div class="min-w-0">
-                    <p class="text-xs uppercase tracking-[0.18em] text-zinc-500">{{ book.bookName }}</p>
-                    <h3 class="mt-2 line-clamp-2 text-base font-semibold text-white">{{ ep.chapterName }}</h3>
+                    <p class="text-[11px] uppercase tracking-[0.22em] text-zinc-500">{{ book.bookName }}</p>
+                    <h3 class="mt-2 line-clamp-2 text-sm font-semibold text-white md:text-base">{{ ep.chapterName }}</h3>
                   </div>
                   <svg class="mt-1 h-5 w-5 shrink-0 text-zinc-500 transition group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -593,7 +593,7 @@ function formatCompactCount(value?: string | number | null) {
 
 function formatEpisodeLabel(index?: number | null) {
   if (!Number.isFinite(index)) return 'Episode';
-  return `Ep ${index}`;
+  return `Ep ${Number(index) + 1}`;
 }
 
 function formatDuration(duration?: number | null) {
